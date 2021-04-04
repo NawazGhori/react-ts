@@ -18,7 +18,7 @@ class Mobile extends React.Component<MobileProps, MobileState> {
 
   update = e => {
     console.log("Inside update");
-    console.log(e);
+    console.log(e.target.value);
   };
   render() {
     return (
