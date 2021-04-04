@@ -12,18 +12,24 @@ class Mobile extends React.Component<MobileProps, MobileState> {
     super(props);
     this.state = {
       id: 100,
-      category: "electronics"
+      category: "Electronics"
     };
   }
 
+  update = e => {
+    console.log("Inside update");
+    console.log(e);
+  };
   render() {
     return (
       <React.Fragment>
-        <h1>Mobile Details received from Product:</h1>
+        <h4>Mobile Details received from Product:</h4>
         <p>Id: {this.props.id}</p>
         <p>Category: {this.props.category}</p>
 
         <button onClick={this.props.updateCategory}>Update Category</button>
+        <br />
+        <input onChange={this.update} />
       </React.Fragment>
     );
   }

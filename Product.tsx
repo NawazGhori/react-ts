@@ -32,7 +32,11 @@ class Product extends React.Component<ProductProps, ProductState> {
   render() {
     return (
       <React.Fragment>
-        <h1>Product is passing data to Mobile:</h1>
+        <h1>
+          Lets understand passing data from Product to Mobile component and
+          vice-versa
+        </h1>
+        <h4>Product is passing data to Mobile</h4>
         <Mobile
           id={this.state.id}
           category={this.state.category}
