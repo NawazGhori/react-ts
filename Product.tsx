@@ -15,7 +15,16 @@ class Product extends React.Component<ProductProps, ProductState> {
       category: "electronics"
     };
   }
+  inputCategoryRef = React.createRef<HTMLInputElement>()
+  update = () => {
+    // console.log("Inside update");
+    // console.log(e.target.value);
+    console.log(this.inputCategoryRef.current?.value)
 
+    this.setState({
+      category: this.inputCategoryRef.current?.value
+    })
+  };
   updateCategory = () => {
     console.log("inside updateCategory");
     this.setState({
@@ -41,6 +50,8 @@ class Product extends React.Component<ProductProps, ProductState> {
           id={this.state.id}
           category={this.state.category}
           updateCategory={this.updateCategory}
+          update={this.update}
+          inputCategoryRef={this.inputCategoryRef}
         />
       </React.Fragment>
     );

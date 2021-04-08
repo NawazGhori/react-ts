@@ -5,6 +5,8 @@ interface MobileProps {
   id: number;
   category: string;
   updateCategory: () => void;
+  update:()=>void
+  inputCategoryRef:any;
 }
 
 class Mobile extends React.Component<MobileProps, MobileState> {
@@ -14,12 +16,14 @@ class Mobile extends React.Component<MobileProps, MobileState> {
       id: 100,
       category: "Electronics"
     };
-  }
 
-  update = e => {
-    console.log("Inside update");
-    console.log(e.target.value);
-  };
+  }
+  category = React.createRef<HTMLInputElement>()
+  // update = () => {
+  //   // console.log("Inside update");
+  //   // console.log(e.target.value);
+  //   console.log(this.category.current?.value)
+  // };
   render() {
     return (
       <React.Fragment>
@@ -27,9 +31,10 @@ class Mobile extends React.Component<MobileProps, MobileState> {
         <p>Id: {this.props.id}</p>
         <p>Category: {this.props.category}</p>
 
-        <button onClick={this.props.updateCategory}>Update Category</button>
+        <button onClick={this.props.updateCategory}>Update Category to Mobiles</button>
         <br />
-        <input onChange={this.update} />
+        <p>Enter custom category in input box below:</p>
+        <input onChange={this.props.update} ref={this.props.inputCategoryRef} />
       </React.Fragment>
     );
   }
